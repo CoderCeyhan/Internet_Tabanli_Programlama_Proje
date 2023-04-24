@@ -1,48 +1,33 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <title>Dota 2 Rehberi</title>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="CssFile.css">
   <style>
-    body{
-      background-color: #564d4dcc;
-    }
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #080000e0;
-      position: sticky;
-      top: 0;
-    }
-    li {
-      float: left;
-    }
-    li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-    .active {
-      background-color:#0089ffa8;
-    }
-    .h2Header {
-      color: rgb(121 155 219);
+    h1 {
+      color: rgb(131, 22, 22)
     }
   </style>
 </head>
 
 <body>
-  <ul>
-    <li><a class="active" href="#">Oyun Rehberleri</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Form</a></li>
-    <li><a href="#">Özgeçmiş</a></li>
-  </ul>
-  <h1 style="color:rgb(131, 22, 22)">Dota 2 Oyun Rehberi</h1>
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Oyun Rehberleri
+      </button>
+      <div class="dropdown-content">
+        <a class="active" href="Dota2_Rehberi.html">Dota 2</a>
+        <a href="#">Cs: Go</a>
+      </div>
+    </div>
+    <a href="#">Blog</a>
+    <a href="#">Form</a>
+    <a href="#">Özgeçmiş</a>
+    <a href="Login.html" class="split">Giriş Yap</a>
+  </div>
+  <h1>Dota 2 Oyun Rehberi</h1>
   <h2 class="h2Header">Nedir?</h2>
   <p>
     Dota 2, açılımı "Defence of The Ancients" olan oyunun ikincisidir. İlk oyun,

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <title>Giriş Yapın</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="CssFile.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Oyun Rehberleri
+      </button>
+      <div class="dropdown-content">
+        <a href="Dota2_Rehberi.html">Dota 2</a>
+        <a href="#">Cs: Go</a>
+      </div>
+    </div>
+    <a href="#">Blog</a>
+    <a href="#">Form</a>
+    <a href="#">Özgeçmiş</a>
+    <a href="Login.html" class="split active">Giriş Yap</a>
+  </div>
+  <h1 style="color:rgb(131, 22, 22)">Giriş Yapın</h1>
+  <form class="loginForm" action="" method="post">
+    <div class="formDiv">
+      <label style="color:rgb(155, 48, 48)" for="username"><b>Kullanıcı Adı</b></label>
+      <input type="text" placeholder="Kullanıcı Adınızı Giriniz:" name="username" required>
+
+      <label style="color:rgb(155, 48, 48)" for="password"><b>Şifre</b></label>
+      <input type="password" placeholder="Şifreyi Giriniz:" name="password" required>
+
+      <button type="submit">Giriş Yap</button>
+      <button type="button" onclick="location.href='#'">Kayıt Ol</button>
+    </div>
+  </form>
+</body>
