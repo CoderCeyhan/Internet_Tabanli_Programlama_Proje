@@ -32,11 +32,18 @@ li a {
 .h2Header {
   color: rgb(121 155 219);
 }
-#loginLi{
+
+.h3Header {
+  color: rgb(121 155 219);
+}
+
+#loginLi {
   float: right;
 }
 
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password],
+input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -66,6 +73,7 @@ button:hover {
 .formDiv {
   float: left;
   width: 35%;
+  margin-left:5px;
 }
 
 
@@ -133,7 +141,7 @@ button:hover {
 }
 
 .dropdown-content a:hover {
-  background-color: #75acff;
+  background-color: #0089ffa8;
 }
 
 .dropdown:hover .dropdown-content {
@@ -141,5 +149,5 @@ button:hover {
 }
 
 .active {
-  background-color: #0089ffa8;
+  background-color: #cfd5df;
 }
