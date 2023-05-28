@@ -2,12 +2,20 @@
 <html lang="tr">
 
 <head>
+  <style> h1 {
+    color: rgb(177, 23, 23);
+    margin-left:10px;
+  }
+  </style>
   <title>Kayıt Olun</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="CssFile.css">
 </head>
 
 <body>
+  <div class="navbar">
+    <h1>Tulpar.net</h1>
+ </div>
   <div class="navbar">
     <div class="dropdown">
       <button class="dropbtn">Oyun Rehberleri
@@ -18,8 +26,7 @@
         <a href="eu4.html">Europa Universalis IV</a>
       </div>
     </div>
-    <a href="#">Blog</a>
-    <a href="#">Form</a>
+    <a href="blog.html">Blog</a>
     <a href="#">Özgeçmiş</a>
     <a href="Login.html" class="split active">Giriş Yapın</a>
     <a href="Sign-Up.html" class="split active">Kaydolun</a>
@@ -37,7 +44,7 @@
       <input type="password" placeholder="Şifreyi Giriniz:" name="password" required>
 
       <label style="color:rgb(155, 48, 48)" for="password"><b>Şifre Tekrar</b></label>
-      <input type="password" placeholder="Şifreyi Giriniz:" name="password" required>
+      <input type="password" placeholder="Şifreyi Giriniz:" name="re-password" required>
 
       <button type="submit" onclick="registerBtn(event)">Kayıt Ol</button>
 

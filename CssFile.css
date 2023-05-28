@@ -31,10 +31,12 @@ li a {
 
 .h2Header {
   color: rgb(121 155 219);
+  margin-left: 10px;
 }
 
 .h3Header {
   color: rgb(121 155 219);
+  margin-left: 10px;
 }
 
 #loginLi {
@@ -72,8 +74,8 @@ button:hover {
 
 .formDiv {
   float: left;
-  width: 35%;
-  margin-left:5px;
+  width: 30%;
+  margin-left: 5px;
 }
 
 
@@ -150,4 +152,22 @@ button:hover {
 
 .active {
   background-color: #cfd5df;
+}
+
+.ortala {
+  margin-left:803px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 5px;
+  font-size:40px;
+  border-color: rgb(79, 72, 80);
+  background: rgb(232, 200, 240);
+  text-decoration: none;
+  border-radius: 10%;
+  display: inline-block;
+  width: 300px;
+}
+
+*{
+  font-family: cambria;
 }
