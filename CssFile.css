@@ -102,6 +102,11 @@ button:hover {
   background-color: #0089ffa8;
   color: white;
 }
+.navbar a.currency {
+  float: right !important;
+  background-color: #0088ff00;
+  color: white;
+}
 
 .dropdown {
   float: left;
@@ -171,3 +176,4 @@ button:hover {
 *{
   font-family: cambria;
 }
+
