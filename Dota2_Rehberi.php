@@ -1,3 +1,22 @@
+<?php
+
+$db = mysqli_connect('localhost', 'php', '1234', 'internet_programlama_proje');
+
+try {
+  $dovizKur = @simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
+  if (empty($dovizKur)) {
+    throw new exception("Anlık bir hata nedeniyle döviz kuru alınamadı.Lütfen sayfayı tekrar yenileyiniz.");
+  }
+  $dovizKurArr =  [
+    $dovizKur->Currency[0]->ForexSelling,
+    $dovizKur->Currency[3]->ForexSelling,
+    $dovizKur->Currency[4]->ForexSelling
+  ];
+} catch (Exception $dovizHata) {
+  return $dovizHata->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -14,6 +33,31 @@
       color: rgb(131, 22, 22);
       margin-left:10px;
     }
+    #sagKatman {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5px;
+            height: 300px;
+            width: 800px;
+            border: 1px #564d4dcc;
+            margin-top: 5px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+
+        #solKatman {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5px;
+            height: 450px;
+            width: 800px;
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-left: 10px;
+            border: 1px #564d4dcc;
+        }
   </style>
 </head>
 
@@ -35,9 +79,13 @@
     <a href="cv.html">Özgeçmiş</a>
     <a href="Login.html" class="split">Giriş Yapın</a>
     <a href="Sign-Up.html" class="split active">Kaydolun</a>
+    <?php echo "<a class='currency'>£$dovizKurArr[2]</a>"; ?>
+    <?php echo "<a class='currency'>€$dovizKurArr[1]</a>"; ?>
+    <?php echo "<a class='currency'>$$dovizKurArr[0]</a>"; ?>
   </div>
   <h1>Dota 2 Oyun Rehberi</h1>
   <h2 class="h2Header">Nedir?</h2>
+   <div id="solKatman">
   <p>
     Dota 2, açılımı "Defence of The Ancients" olan oyunun ikincisidir. İlk oyun,
     Warcraft 3 adlı oyunun bir modu olarak Icefrog lakaplı bir modçu tarafından geliştirildi.
@@ -46,9 +94,13 @@
     baskın olarak Dota 2 oynanmaktadır ve bir oyun platformu olan Steam'de en çok
     oynanan oyunlardan birisidir.
   </p>
+</div>
+<div id="sagKatman">
   <img src="https://cdn.oneesports.gg/cdn-data/2022/03/Dota2_ClashofHeroes-1024x576.webp" style="display: block;
-    margin-left: auto; margin-right: auto;" width="450" height="253">
+    margin-left: auto; margin-right: auto;" width="600" height="300">
+</div>
   <h2 class="h2Header">Oyun İçeriği Nedir?</h2>
+  <div id="solKatman">
   <p>
     Oyun, karşılıklı merkez üsleri, bu üslere bağlanan üç yol (top,bottom,mid),
     bu yolların üzerinde ikişer kuleler, orman , oyun haritasının ortasından geçen bir
@@ -79,10 +131,12 @@
     illüzyon rünüdür. Oyundaki özel bir eşya olan şişe ile bu rünler belli bir süre taşınabilir
     ve can yenilenmesini kısa bir süreliğine arttırmak için ve aynı zamanda özelliklerden yararlanmak için
     kullanılabilir.<br>
-    <img src="https://estnn.com/wp-content/uploads/2022/08/Dota-2-Primary-Attributes-ft-560x315.jpg" style="display: block;
-    margin-left: auto; margin-right: auto;" width="450" height="253">
   </p>
-  <div class="div_half1">
+</div>
+<div id="sagKatman">
+  <img src="https://estnn.com/wp-content/uploads/2022/08/Dota-2-Primary-Attributes-ft-560x315.jpg" style="display: block;
+    margin-left: auto; margin-right: auto;" width="600" height="300">
+</div>
   <h2 class="h2Header">Nasıl Oynanır?</h2>
   <p>
     Oyunun başında, çoğunlukla zeka karakterleri etkilidir ve onlar genellikle kuvvet karakterlerine

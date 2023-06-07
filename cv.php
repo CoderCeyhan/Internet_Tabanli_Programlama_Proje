@@ -1,3 +1,22 @@
+<?php
+
+$db = mysqli_connect('localhost', 'php', '1234', 'internet_programlama_proje');
+
+try {
+  $dovizKur = @simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
+  if (empty($dovizKur)) {
+    throw new exception("Anlık bir hata nedeniyle döviz kuru alınamadı.Lütfen sayfayı tekrar yenileyiniz.");
+  }
+  $dovizKurArr =  [
+    $dovizKur->Currency[0]->ForexSelling,
+    $dovizKur->Currency[3]->ForexSelling,
+    $dovizKur->Currency[4]->ForexSelling
+  ];
+} catch (Exception $dovizHata) {
+  return $dovizHata->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -83,6 +102,9 @@
         <a href="cv.html">Özgeçmiş</a>
         <a href="Login.html" class="split">Giriş Yapın</a>
         <a href="Sign-Up.html" class="split active">Kaydolun</a>
+        <?php echo "<a class='currency'>£$dovizKurArr[2]</a>"; ?>
+        <?php echo "<a class='currency'>€$dovizKurArr[1]</a>"; ?>
+        <?php echo "<a class='currency'>$$dovizKurArr[0]</a>"; ?>
     </div>
     <h1><strong>Ümit Başar Ceyhan</strong></h1>
     <br><br>

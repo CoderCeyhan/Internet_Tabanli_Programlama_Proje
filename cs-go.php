@@ -1,3 +1,22 @@
+<?php
+
+$db = mysqli_connect('localhost', 'php', '1234', 'internet_programlama_proje');
+
+try {
+  $dovizKur = @simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
+  if (empty($dovizKur)) {
+    throw new exception("Anlık bir hata nedeniyle döviz kuru alınamadı.Lütfen sayfayı tekrar yenileyiniz.");
+  }
+  $dovizKurArr =  [
+    $dovizKur->Currency[0]->ForexSelling,
+    $dovizKur->Currency[3]->ForexSelling,
+    $dovizKur->Currency[4]->ForexSelling
+  ];
+} catch (Exception $dovizHata) {
+  return $dovizHata->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -14,6 +33,31 @@
       color: rgb(131, 22, 22);
       margin-left:10px;
     }
+    #sagKatman {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5px;
+            height: 300px;
+            width: 800px;
+            border: 1px #564d4dcc;
+            margin-top: 5px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+
+        #solKatman {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5px;
+            height: 300px;
+            width: 800px;
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-left: 10px;
+            border: 1px #564d4dcc;
+        }
   </style>
 </head>
 
@@ -32,20 +76,28 @@
       </div>
     </div>
     <a href="blog.html">Blog</a>
-    <a href="#">Özgeçmiş</a>
+    <a href="cv.html">Özgeçmiş</a>
     <a href="Login.html" class="split">Giriş Yapın</a>
     <a href="Sign-Up.html" class="split active">Kaydolun</a>
+    <?php echo "<a class='currency'>£$dovizKurArr[2]</a>"; ?>
+    <?php echo "<a class='currency'>€$dovizKurArr[1]</a>"; ?>
+    <?php echo "<a class='currency'>$$dovizKurArr[0]</a>"; ?>
   </div>
   <h1>CS:GO Oyun Rehberi</h1>
   <h2 class="h2Header">Nedir?</h2>
+  <div id="solKatman">
   <p>
     Counter-Strike: Global Offensive ya da bilinen kısa adıyla CS:GO,
   Valve ve Hidden Path Entertainment tarafından geliştirilen çevrimiçi
   birinci şahıs nişancı oyunudur. Oyun, 2012 yılında piyasaya sürülmüştür.
   </p>
+  </div>
+  <div id="sagKatman">
   <img src="https://www.donanimhaber.com/cache-v2/?t=20230417154444&width=-1&text=0&path=https://www.donanimhaber.com/images/images/haber/159290/600x338cs-go-sistem-gereksinimleri.jpg" style="display: block;
     margin-left: auto; margin-right: auto;" width="450" height="253">
+  </div>
   <h2 class="h2Header">Oyun İçeriği Nedir?</h2>
+  <div id="solKatman">
   <p>
     Oyun, T ve AT kısaltmalı takımlar vardır. Her iki taraf da
   birbirlerini yok etmeleriyle ve aynı zamanda ayrı hedefleri tamamlamakla
@@ -58,9 +110,12 @@
   oyun modları ile kendi sunucularını barındırmalarına izin veren
   eşleştirme desteği de bulunmaktadır. Bir battle royale oyun modu olan
   "Tehlikeli Bölge", Aralık 2018'de tanıtıldı.
-    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_d196d945c6170e9cadaf67a6dea675bd5fa7a046.1920x1080.jpg?t=1668125812" style="display: block;
-    margin-left: auto; margin-right: auto;" width="450" height="253">
   </p>
+ </div>
+ <div id="sagKatman">
+  <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_d196d945c6170e9cadaf67a6dea675bd5fa7a046.1920x1080.jpg?t=1668125812" style="display: block;
+    margin-left: auto; margin-right: auto;" width="450" height="253">
+  </div>
   <h2 class="h2Header">Nasıl Oynanır?</h2>
   <p>
      Serinin önceki oyunları gibi Global Offensive, görev tabanlı birçok oyunculu
@@ -77,7 +132,8 @@
     takımın imha edilmesiyle sona erer ve yeni bir tur başlar. Tur bitmeden
     ölen oyuncular, dirilmek için turun bitmesini beklemek zorundadır.
     Oyuncular önceki turdaki performansına göre alacağı parayla silah
-    ve ekipman satın alabilir.</p>
+    ve ekipman satın alabilir.
+  </p>
     <h3 class="h3Header">Oyun Modları</h3>
 
     <h3 class="h3Header">Klasik ve Rekabetçi</h3>

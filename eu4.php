@@ -1,3 +1,22 @@
+<?php
+
+$db = mysqli_connect('localhost', 'php', '1234', 'internet_programlama_proje');
+
+try {
+  $dovizKur = @simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
+  if (empty($dovizKur)) {
+    throw new exception("Anlık bir hata nedeniyle döviz kuru alınamadı.Lütfen sayfayı tekrar yenileyiniz.");
+  }
+  $dovizKurArr =  [
+    $dovizKur->Currency[0]->ForexSelling,
+    $dovizKur->Currency[3]->ForexSelling,
+    $dovizKur->Currency[4]->ForexSelling
+  ];
+} catch (Exception $dovizHata) {
+  return $dovizHata->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -14,6 +33,31 @@
       color: rgb(131, 22, 22);
       margin-left:10px;
     }
+    #sagKatman {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5px;
+            height: 300px;
+            width: 800px;
+            border: 1px #564d4dcc;
+            margin-top: 5px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+
+        #solKatman {
+            display: inline-block;
+            vertical-align: top;
+            padding: 5px;
+            height: 450px;
+            width: 800px;
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-left: 10px;
+            border: 1px #564d4dcc;
+        }
   </style>
 </head>
 
@@ -35,18 +79,26 @@
     <a href="cv.html">Özgeçmiş</a>
     <a href="Login.html" class="split">Giriş Yapın</a>
     <a href="Sign-Up.html" class="split active">Kaydolun</a>
+    <?php echo "<a class='currency'>£$dovizKurArr[2]</a>"; ?>
+    <?php echo "<a class='currency'>€$dovizKurArr[1]</a>"; ?>
+    <?php echo "<a class='currency'>$$dovizKurArr[0]</a>"; ?>
   </div>
   <h1>Europa Universalis IV Oyun Rehberi</h1>
   <h2 class="h2Header">Nedir?</h2>
+   <div id="solKatman">
   <p>
     Europa Universalis IV, Paradox Development Studio tarafından geliştirilmiş
   ve Paradox Interactive tarafından yayımlanmış strateji oyunu.
   Europa Universalis serisinin 4. oyunudur. 13 Ağustos 2013'te
   yayınlanmıştır. Kısaca EUIV ya da EU4 olarak da bilinir.
   </p>
+</div>
+<div id="sagKatman">
   <img src="https://cdn.akamai.steamstatic.com/steam/apps/236850/capsule_616x353.jpg?t=1681894887" style="display: block;
-    margin-left: auto; margin-right: auto;" width="450" height="253">
+    margin-left: auto; margin-right: auto;" width="600" height="300">
+</div>
   <h2 class="h2Header">Nasıl Oynanır?</h2>
+  <div id="solKatman">
   <p>
     Oyunun temel ilkeleri dizinin daha önceki oyunlarına benzemekle beraber,
   birçok konuda daha karmaşık hale bürünmüştür. Oyuncu tek oyuncu olarak
@@ -77,9 +129,12 @@
   değiştirilemez, aynı zamanda oyunda çeşitli eylemler sonrası otomatik olarak
   kayıt alınır, böylelikle yapılan hatalarda bir önceki kayda geri dönülemez.
   Oyunda başarım elde edilebilmesi için bu ayarın açılması gerekir.
-    <img src="https://i0.wp.com/raiderking.com/wp-content/uploads/2022/08/EU4-Europa-Universalis-IV-Country-Tags-List.jpg?fit=1200%2C675&ssl=1" style="display: block;
-    margin-left: auto; margin-right: auto;" width="450" height="253">
   </p>
+ </div>
+ <div id="sagKatman">
+  <img src="https://i0.wp.com/raiderking.com/wp-content/uploads/2022/08/EU4-Europa-Universalis-IV-Country-Tags-List.jpg?fit=1200%2C675&ssl=1" style="display: block;
+    margin-left: auto; margin-right: auto;" width="600" height="300">
+</div>
   <h2 class="h2Header">Oyun Zor Mudur?</h2>
   <p>
     Kesinlikle çok zor. Ancak, oyunu oynaya oynaya öğrenebilirsiniz veya DLC
